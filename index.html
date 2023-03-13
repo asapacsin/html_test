@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Photo stylization</title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> 
+<link rel="stylesheet" href="css/index.css" />   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /*jquery*/
+</script>
+<script type="text/javascript" src="js/function.js"></script>
+</head>
+
+<div id ="image">
+    <form method="post" action="/" enctype="multipart/form-data" name="form" onsubmit="return validateForm()">
+        <p id="test"></p>
+        <p id = "if_style" hidden>no</p>
+        <div id="block1">
+            <div class="image-display">
+                <figure>
+                    <img class ='select-style' src="style/The_scream.jpg">
+                    <figcaption class="painting-discription">Edvard Munch, 1893, The Scream, oil, tempera and pastel on cardboard</figcaption>
+                </figure>
+                <figure>
+                    <img class ='select-style' src="style/The_Starry_Night.jpg">
+                    <figcaption class="painting-discription">Vincent van Gogh, (1853-1890) The Starry Night, 1889, oil on canvas</figcaption>
+                </figure>
+                <figure>
+                    <img class ='select-style' src="style/Udnie.jpg">
+                    <figcaption class="painting-discription">Udnie – (Francis Picabia),oil,Cubism</figcaption>
+                </figure>
+            </div>
+            <div id="display-content">
+                <input id = "content_file" type="file" name="content-file" class="form-control" autocomplete="off" accept="image/*">
+                <div class="image-display">
+                    <figure>
+                        <img id ="display-image-content" >
+                        <figcaption>Photo</figcaption>
+                    </figure>
+                    <figure  id="hidden-style">
+                        <img src="style/Udnie.jpg">
+                        <figcaption>Style</figcaption>
+                    </figure>
+                    <figure id="display-style-result" hidden>
+                        <a href="output/blend-apple-orange_Udnie.jpg" download>
+                            <img src="output/blend-apple-orange_Udnie.jpg">
+                        </a>
+                        <figcaption>The stylized image</figcaption>
+                    </figure>
+                </div>  
+            </div>
+        </div>
+        <div id="sliderBox">
+
+            <label>Style-degree: </label><p><input type="range" id="sliderStyleDregree" min="0" max="10" value="10" class="sliders" /> <span id="style-degree">1</span></p>
+        </div>
+        <input type="hidden" name="style_file" value="" required>
+        <input type="hidden" name="style_degree" value ="1" required>
+        <div id="submit-div">
+            <input type="submit" value="Submit" class="btn btn-info">
+        </div>
+        <div id="style_description">
+            <p>In left is the photo stylization by pretrain neural network.</p>
+        </div>
+        <div id="painting">
+            <input id = "painting_content_file" type="file" name="painting-content-file" class="form-control" autocomplete="off" accept="image/*">
+            <figure>
+                <img id ="display-painting-content" >
+                <figcaption>Photo</figcaption>
+            </figure>
+            <div id="split">
+                <select>
+                    <option value="none">none</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+            <div id="display-painting-result">
+                <figure>
+                    <a href="output/AntikeGriechen1_Udnie.jpg" download>
+                        <img src="output/AntikeGriechen1_Udnie.jpg">
+                    </a>
+                    <figcaption>The painting like photo</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div id="painting_description">
+            <p>In left is the painting stylization by color segmentation</p>
+        </div>
+        <div id="simple_stylization">
+            <input id = "simple_content_file" type="file" name="simple_content_file" class="form-control" autocomplete="off" accept="image/*">
+            <figure>
+                <img id ="display-simple-content" >
+                <figcaption>Photo</figcaption>
+            </figure>
+            <input id = "simple_style_file" type="file" name="simple_style_file" class="form-control" autocomplete="off" accept="image/*">
+            <figure>
+                <img id ="display-simple-style" >
+                <figcaption>Style</figcaption>
+            </figure>
+            <div id="display-simple-result">
+                <figure>
+                    <a href="output/AntikeGriechen1_Udnie.jpg" download>
+                        <img src="output/AntikeGriechen1_Udnie.jpg">
+                    </a>
+                    <figcaption>The simple stylization photo</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div id="simple_description">
+            <p>In left is the simple stylization</p>
+        </div>
+        <input type="hidden" name="number_split" value="none" required>
+        
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </form>
+</div>
+</body>
+</html>
